@@ -79,14 +79,26 @@ OrdwaySpeciesNames %>%
 ```{r}
 # inspect OrdwaySpeciesNames
 
+OrdwaySpeciesNames %>%
+  head(10)
+
+summary(OrdwaySpeciesNames)
 
 # inner join
 
-
+Cleaned <-
+  OrdwayBirds %>%
+  inner_join( OrdwaySpeciesNames ) %>% 
+  select( Species = SpeciesNameCleaned, Month, Day ) %>%
+  na.omit()
 
 
 # inspect the data after the join
 
+Cleaned %>%
+  head(10)
+
+summary(Cleaned)
 
 ```
 
