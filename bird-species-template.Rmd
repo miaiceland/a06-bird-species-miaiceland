@@ -36,10 +36,15 @@ Before we begin, the book gives us some instructions to select a few key variabl
 ```{r}
 # Get the data table & clean up dates (see Data Computing eBook)
 
-
+OrdwayBirds1 <-
+  OrdwayBirds %>%
+  select(SpeciesName, Month, Day) %>%
+  mutate(Month = as.numeric(Month),
+         Day = as.numeric(Day))
 
 # Inspect resulting data
-
+class(OrdwayBirds1[ ,"Month"])
+class(OrdwayBirds1[ ,"Day"])
 
 ```
 
@@ -53,11 +58,15 @@ Before we begin, the book gives us some instructions to select a few key variabl
 ```{r}
 # unique species in original data (including mis-spellings)
 
-
+OrdwayBirds %>%
+  n_distinct("SpeciesName")
 
 # unique species in the clean list
 
+data("OrdwaySpeciesNames", package = "dcData")
 
+OrdwaySpeciesNames %>%
+  n_distinct("SpeciesNameCleaned")
 
 ```
 
