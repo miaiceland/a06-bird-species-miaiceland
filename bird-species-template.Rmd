@@ -1,7 +1,7 @@
 ---
 title: "Activity: Bird Species"
-author: "Your Names Here"
-date: "DUE DATE "
+author: "Mia Iceland"
+date: "June 7, 2023"
 output: html_notebook
 ---
 
@@ -10,18 +10,18 @@ output: html_notebook
 
 ```{r}
 # Load `tidyverse` and `dcData` packages
-
-
-
+library(tidyverse)
 
 # Load the `OrdwayBirds` data set into your RStudio environment from the `dcData` package
 
-
+data("OrdwayBirds", package = "dcData")
 
 
 # Show a few commands used to inspect the data set a few different ways
+OrdwayBirds %>%
+  head(10)
 
-
+summary(OrdwayBirds)
 
 ```
 
