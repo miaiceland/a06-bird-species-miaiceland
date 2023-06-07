@@ -139,8 +139,11 @@ We now want to produce a month-by-month count for each of the major species, and
 ```{r}
 # prepare glyph-ready data table called `ByMonth`
 
-
-
+ByMonth <-
+  Cleaned %>%
+  left_join(TopSpecies1, by = 'Species') %>%
+  na.omit()
+  
 ```
 
 Now use the ggplot template below to generate the desired graph. (Remark you can also use esquisser or mplot to create a line chart instead of the barchart)
@@ -163,23 +166,25 @@ According to the graph, we can answer the questions posed:
 
 ##### 1. Which species are present year-round?  
 
+The American Goldfinch and the Black-capped Chickadee. 
 
 
 ##### 2. Which species are migratory, that is, primarily present in one or two seasons?
 
-
+The Field Sparrow.
 
 
 ##### 3. What is the peak month for each major species? (bullet list)
 
-
+-American Goldfinch: month 10
+-Black-capped Chickadee: month 11
+-Field Sparrow: month 5
+-Slated-colored Junco: month 10
+-Tree Swallow: month 3
 
 
 ##### 4. Which major species are seen in good numbers for at least 6 months of the year?
 
+The Slated-colored Junco and the Tree Swallow.
 
-
-```{r}
-
-```
 
